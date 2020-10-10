@@ -1,0 +1,22 @@
+{
+  "name": "ufo_sightings_verisys",
+  "version": "1.0.0",
+  "description": "Take-home challenge for Verisys.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krboelter/ufo_sightings_verisys.git"
+  },
+  "author": "Kenneth Boelter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krboelter/ufo_sightings_verisys/issues"
+  },
+  "homepage": "https://github.com/krboelter/ufo_sightings_verisys#readme",
+  "dependencies": {
+    "knex": "^0.21.6"
+  }
+}

@@ -4,6 +4,7 @@
   "description": "Take-home challenge for Verisys.",
   "main": "index.js",
   "scripts": {
+    "server": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +18,12 @@
   },
   "homepage": "https://github.com/krboelter/ufo_sightings_verisys#readme",
   "dependencies": {
-    "knex": "^0.21.6"
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "knex": "^0.21.6",
+    "nodemon": "^2.0.4",
+    "pg": "^8.4.1",
+    "sqlite3": "^5.0.0"
   }
 }

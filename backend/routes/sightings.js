@@ -6,11 +6,11 @@ const sightingsModel = require('./sightingsModel')
 router.post('/', async (req, res, next) => {
     try {
         const newSighting = req.body
-        const added =
+        const added = await sightingsModel.add(newSighting)
 
         res.status(201).json({
             message: "Added Sighting",
-            sighting: req.body
+            sighting: added
         })
     } catch(err) {
         next(err)

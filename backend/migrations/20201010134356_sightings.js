@@ -4,7 +4,6 @@ exports.up = async function(knex) {
         table.date('sighting_date')
             .notNullable()
         table.string('shape')
-            .notNullable()
         table.integer('duration')
             .notNullable()
         table.string('comments')

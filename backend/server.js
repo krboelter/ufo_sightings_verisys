@@ -6,6 +6,7 @@ const port = process.env.PORT || 5000
 
 const sightings = require('./routes/sightings')
 
+server.use(cors())
 server.use(express.json())
 
 // welcome message
@@ -19,6 +20,8 @@ server.use('/api/sightings', sightings)
 
 // default 500 error
 server.use((err, req, res, next) => {
+    console.log(err)
+
     res.status(500).json({
         message: "Internal Server Error...",
         error: err
@@ -26,5 +29,5 @@ server.use((err, req, res, next) => {
 })
 
 server.listen(port, () => {
-    console.log(`***Server listening at http://localhost:${port}***`)
+    console.log(`\n***Server listening at http://localhost:${port}***\n`)
 })

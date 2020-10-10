@@ -1,9 +1,11 @@
 const db = require('../data/dbconfig')
 
 // adds a sighting
-const add = (sighting) => {
-    const newSighting = db('sighting')
+const add = async (sighting) => {
+    const [newSighting] = await db('sightings')
         .insert(sighting)
+
+    console.log(newSighting, "HERE IS THE SIGHTING")
 
     return getOneSighting(newSighting)
 }
@@ -15,10 +17,10 @@ const getSightings = () => {
 }
 
 // finds a sighting by id
-const getOneSighting = async (SightingId) => {
+const getOneSighting = async (id) => {
     const sighting = await db('sightings')
         .select()
-        .where('id', id)
+        .where({ id })
         .first()
 
     return sighting

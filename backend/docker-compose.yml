@@ -16,9 +16,9 @@ services:
     db:
         image: mysql:8.0
         container_name: mysqldb
-        command: mysqld --user=root
+        command: mysqld --user=root --verbose
         volumes:
-            - ./:/docker-entrypoint-initdb.d/backend
+            - ./schemadump.sql:/docker-entrypoint-initdb.d/schemadump.sql
         ports:
             - "3306:3306"
         environment:
@@ -30,4 +30,8 @@ services:
     sightings:
         image: "doldroyd/ufo-sighting:firstload"
         environment:
-            ENDPOINT: http://0.0.0.0:8080/sighting
+            ENDPOINT: http://localhost:5000/api/sightings
+    web:
+        build: .
+        ports:
+            - 5000:5000

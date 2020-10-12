@@ -5,8 +5,6 @@ const add = async (sighting) => {
     const [newSighting] = await db('sightings')
         .insert(sighting)
 
-    console.log(newSighting, "HERE IS THE SIGHTING")
-
     return getOneSighting(newSighting)
 }
 

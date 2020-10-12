@@ -23,8 +23,54 @@ To start the backend server:
 * cd into /backend
 * in the cli, type `npm run server`
 
-Adding a file:
-* curl 
+OR
 
+With Docker:
+* In CLI: [sudo] docker-compose up -d
+* In Browser: localhost:3001/api/sightings
+
+Adding a .csv file:
+* ... [unfinished]
+
+##API
 Adding a sighting:
-*
+* format: {
+    sighting_date: (date: yyyy-mm-dd 00:00:00 +0000),
+    shape: (string),
+    duration: (integer),
+    comments: (string),
+    city: (string),
+    state: (string),
+    latitude: (string),
+    longitude: (string)
+}
+
+Schema Description:
+* sighting_date - required, default: current date
+* shape - required, default: ''
+* duration - required, default: 0
+* comments - required, default: ''
+* city - required, default: ''
+* state - required, default: ''
+* latitude - required, default: ''
+* longitude - required, default: ''
+
+Challenges:
+* Time spend on general bug fixes
+* Figuring out how to get the CSV file into the DB
+    (my thoughts were to loop through each line and make it it's own array, knexJS doesn't allow you to add files directly)
+* Getting Docker to communicate with the "doldroyd/ufo-sighting:firstload" image
+
+Assumptions:
+* None
+
+Next Steps:
+* Getting CSV file to load into project
+* Once data is in place, filtering through the data to meet the 750 mile area criteria
+* Add PUT/DELETE routes
+
+Feedback:
+* None (This project was very challenging)
+
+Questions:
+* None

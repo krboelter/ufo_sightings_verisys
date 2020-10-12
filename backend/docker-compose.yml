@@ -1,0 +1,33 @@
+version: '3'
+services:
+    ufo_sightings:
+        image: node:12-alpine
+        command: sh -c "npm install && npm run server"
+        ports:
+            - 3001:3001
+        working_dir: /backend
+        volumes:
+            - ./:/backend
+        environment:
+            POSTGRES_HOST: postgres
+            POSTGRES_USER: root
+            POSTGRESS_PASSWORD: test
+            POSTGRES_DB: sightings
+    db:
+        image: mysql:8.0
+        container_name: mysqldb
+        command: mysqld --user=root
+        volumes:
+            - ./:/docker-entrypoint-initdb.d/backend
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_DATABASE: "test"
+            MYSQL_USER: "test"
+            MYSQL_PASSWORD: "test"
+            MYSQL_ROOT_PASSWORD: "root"
+            MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    sightings:
+        image: "doldroyd/ufo-sighting:firstload"
+        environment:
+            ENDPOINT: http://0.0.0.0:8080/sighting

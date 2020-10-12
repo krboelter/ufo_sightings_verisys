@@ -32,7 +32,7 @@ With Docker:
 Adding a .csv file:
 * ... [unfinished]
 
-##API
+## API
 Adding a sighting:
 * format: {
     sighting_date: (date: yyyy-mm-dd 00:00:00 +0000),

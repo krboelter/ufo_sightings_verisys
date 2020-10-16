@@ -45,6 +45,11 @@ Adding a sighting:
     longitude: (string)
 }
 
+Adding a csv file:
+* cd into backend, start the server
+* file upload format (via cli): `node utils/csv_parse.js [/path/to/csv/file] http://localhost:3001/api/sightings`
+* at the moment 80,000 sightings is too many for the system
+
 Schema Description:
 * sighting_date - required, default: current date
 * shape - required, default: ''

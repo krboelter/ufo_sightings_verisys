@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const sightingsModel = require('./sightingsModel')
+const parseCsv = require('../utils/csv_parse')
 
 // add a new sighting
 router.post('/', async (req, res, next) => {
